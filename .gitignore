@@ -1,3 +1,4 @@
 .DS_Store
 .idea
+.turbo
 **/node_modules/
