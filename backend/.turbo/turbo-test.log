@@ -1,0 +1,10 @@
+
+> backend@1.0.0 test
+> echo "Error: no test specified" && exit 1
+
+Error: no test specified
+[37;40mnpm[0m [0m[31;40mERR![0m [0m[35mLifecycle script `test` failed with error:[0m 
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35mError: command failed[0m 
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35m  in workspace: backend@1.0.0[0m 
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35m  at location: /home/kunta/source/challenges/ello/backend[0m 
+[0m

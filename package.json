@@ -1,0 +1,21 @@
+{
+  "name": "ello-tes",
+  "version": "1.0.0",
+  "description": "ello fullstack challenge",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test"
+  },
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "author": "https://github.com/dauddi",
+  "license": "ISC",
+  "devDependencies": {
+    "turbo": "^2.0.3"
+  },
+  "packageManager": "npm@10.5.2"
+}
