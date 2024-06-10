@@ -1,10 +1,11 @@
 {
-  "name": "https://github.com:dauddi/ello.git",
+  "name": "Ello challenge",
   "version": "1.0.0",
   "description": "ello fullstack challenge",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "start": "turbo run start",
     "lint": "turbo run lint",
     "test": "turbo run test"
   },

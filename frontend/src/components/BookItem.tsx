@@ -5,7 +5,14 @@ import { Book } from "@graphql/schema";
 interface BookItemProps {
   book: Book;
   actionLabel: string;
-  actionVariant?: string;
+  actionVariant?:
+    | "secondary"
+    | "inherit"
+    | "primary"
+    | "success"
+    | "error"
+    | "info"
+    | "warning";
   onActionClick: () => void;
 }
 

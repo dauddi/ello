@@ -6,7 +6,7 @@ Welcome to the Ello Book Assignment project! This project is a part of the Ello 
 
 This project involves building a teacher-facing UI for the Ello web viewer product, where teachers can assign books to students. The main features include a search bar for books, a list of search results, a reading list, and the ability to create and manage multiple reading lists.
 
-![Ello book assignment view](./public/assets/image.png)
+![Ello book assignment view](./frontend/public/assets/image.png)
 
 ## How to Set Up and Run
 

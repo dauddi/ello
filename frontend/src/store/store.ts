@@ -6,6 +6,7 @@ const preloadedState = loadState();
 
 export const store = configureStore({
   reducer: {
+    // @ts-ignore
     readingLists: readingListsReducer,
   },
   preloadedState,

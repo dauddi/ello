@@ -1,0 +1,5 @@
+
+> backend@1.0.0 start
+> ts-node src/app.ts
+
+🚀  Server ready at: http://localhost:4000/
