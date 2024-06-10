@@ -1,85 +1,114 @@
- ![svgviewer-output](https://github.com/ElloTechnology/backend_takehome/assets/3518127/561bc8d4-bffc-4360-b9ea-61e876bcec93)
+# Ello Book Assignment
 
+## Introduction
 
-# Ello Engineering Challenge
+Welcome to the Ello Book Assignment project! This project is a part of the Ello Engineering Challenge.
 
-👋 Hello,
-We are really excited about you potentially joining the team, so we designed this take home exercise to give you a taste of the challenges you may encounter in the role, and better understand what it would be like to work closely together.
+This project involves building a teacher-facing UI for the Ello web viewer product, where teachers can assign books to students. The main features include a search bar for books, a list of search results, a reading list, and the ability to create and manage multiple reading lists.
 
-Thanks for taking the time, and we hope to talk with you soon!
+![Ello book assignment view](./public/assets/image.png)
 
-## About Ello
+## How to Set Up and Run
 
-Ello is a forward-thinking educational technology company dedicated to revolutionizing the way children learn to read. Our mission is to empower young readers with the tools they need to become proficient and passionate readers. We believe that fostering a love for reading is essential for a child's academic and personal growth.
+### Prerequisites
 
-**Note:** Please don't fork this repository or create a pull request against it. Other applicants may take inspiration from it. You should create another repository for the challenge. Once the coding challenge is completed, email your solution back to our team at [fullstack2024@ello.com](mailto:fullstack2024@ello.com).
+- Node.js (v14 or higher)
+- npm (v6 or higher)
 
+### Turborepo Setup
 
-## Challenge
-As part of our goal to have Ello impact as many children as we can, we offer an Ello web viewer product. [https://books.ello.com](https://books.ello.com/)
+[Turborepo](https://turborepo.org/) is a high-performance build system for JavaScript and TypeScript codebases. It allows for faster builds by caching and optimizing tasks, and it makes it easier to manage multiple projects within a monorepo setup. In other words, it puts the "turbo" in your repo!
 
+### Project Structure
 
-We give this to certain schools for free to allow teachers to share our books with children. 
-You are building part of the teacher-facing UI for this product,
-namely the book assignment view, where teachers can assign books to students. 
+The project is structured into two main directories: `frontend` and `backend`, both of which are TypeScript apps using npm. Turborepo is used to unify the project scripts, so you can start the development environment for both frontend and backend simultaneously. Two birds, one stone!
 
-The view should have the following features:-
+### Installation
 
-1. A search bar that allows users to search for books by title.
-2. A list of search results that displays the book title, author, and a button to add the book to the students reading list.
-3. A reading list that displays all the books that the teacher has added.
-4. A button to remove a book from the reading list.
+1. Clone the repository:
 
-You can build this view without the concept of a "student" and just have a single reading list for the teacher.
+```bash
+git clone <repository_url>
+cd ello
+```
 
-### Requirements
-- Use React as the frontend framework.
-- Showcase the use of React hooks.
-- Use [material-ui](https://mui.com/material-ui/) as the component library.
-- Write your code in the `src/frontend` directory.
-- Create components as you feel is best suited for your solution
-<img width="1013" alt="Screenshot 2024-05-15 at 19 10 51" src="https://github.com/ElloTechnology/fullstack-take-home-test/assets/3518127/bc3eb7f7-489f-4304-93f4-032bbbd38c58">
-
-
-### Data
-To get access to data that you will use for this challenge you can switch into the `src/backend` folder and run
+2. Install dependencies for the root and all sub-packages:
 
 ```bash
 npm install
 ```
 
-Then run the following command to start the server
+3. (Optional) Set up the Apollo client by configuring the GraphQL endpoint in `frontend/src/graphql/client.ts`:
+
+```typescript
+import { ApolloClient, InMemoryCache } from "@apollo/client";
+
+export const client = new ApolloClient({
+  uri: "https://your-graphql-endpoint",
+  cache: new InMemoryCache(),
+});
+```
+
+### Running the Application
+
+1. Start the development server:
 
 ```bash
-npm start
+npm run dev
 ```
 
-This start a Graphql server at the url `http://localhost:4000/`, the server has a single query `books` that returns a list of books. 
+This command uses Turborepo to start both the frontend and backend development servers simultaneously. It's like hitting the fast forward button on your project setup!
 
-```graphql
-query Books {
-  books {
-    author
-    coverPhotoURL
-    readingLevel
-    title
-  }
-}
+2. Open your browser and navigate to `http://localhost:5173`.
+
+### Running Unit Tests (Not Set Up)
+
+To run unit tests, use the following command:
+
+```bash
+npm run test
 ```
 
-You can use this query to get the list of books to display in your frontend. You may need to adjust the `coverPhotoURL` to be a valid URL. The photos are in the `src/frontend/assets` directory.
+This will execute the test suite and display the results in the terminal. Remember, testing is the best way to "shelf" your fears about bugs!
 
-### Styling Guidelines
-- Use the "Mulish" Google font
-- You can use the following colors (You don't have to use all but you can pick and choose from here)
-<img width="961" alt="Screenshot 2024-05-14 at 17 36 40" src="https://github.com/ElloTechnology/fullstack-take-home-test/assets/3518127/15922f8f-a7c7-4033-8405-76988e95afb3">
+## Solution Explanation
 
+### Technical Details
 
+The project is built using the following technologies:
 
+- **React**: For building the user interface.
+- **TypeScript**: For type safety and improved developer experience.
+- **Material-UI**: For UI components and styling.
+- **Redux Toolkit**: For state management.
+- **Apollo Client**: For interacting with the GraphQL API.
+- **React-Toastify**: For displaying notifications.
+- **Turborepo**: For managing the monorepo and optimizing build processes.
 
-### You will be evaluated on
-- Code quality and organization.
-- User experience and design.
-- Beautiful and responsive UI.
+### Key Components
 
+1. **BookSearch**: A component that includes a search bar to filter books by title. It displays the search results in a list, where each book can be added to a reading list.
 
+2. **ReadingList**: A component that displays all the reading lists created by the teacher. Each reading list is displayed as a card with a grid of book covers. The reading list can be clicked to open a modal showing the books in the list.
+
+3. **ReadingListModal**: A modal component that shows the books in a selected reading list. Books can be removed from the list or the entire list can be cleared.
+
+4. **CreateReadingListModal**: A modal component that allows the teacher to create a new reading list by providing a name.
+
+5. **BookItem**: A reusable component used to display book details and handle actions like adding to or removing from a list.
+
+### Color Palette
+
+The application uses a predefined color palette to ensure a consistent and visually appealing design. Primary colors are used for main elements, while secondary colors are used as accents. This project is colorful and bright, just like a well-stocked bookshelf!
+
+### Areas Left Undone or Not Up to Standard
+
+1. **Search Functionality**: The search functionality is currently implemented using client-side filtering. In a real-world application, server-side search should be implemented to handle large datasets more efficiently. Think of it as upgrading from a card catalog to a search engine!
+
+2. **Error Handling**: Basic error handling is implemented, but more robust error handling and user feedback mechanisms should be added to improve the user experience. Let's make sure our application never has a "plot twist" we didn't see coming.
+
+3. **Unit Tests**: While unit tests are included, additional tests should be written to cover all edge cases and ensure the reliability of the application. A good test suite is like a well-structured story—no loose ends!
+
+4. **GraphQL Endpoint**: The GraphQL endpoint is currently hardcoded. In a production environment, it should be configurable through environment variables. It's like adding a bookmark to your favorite API.
+
+5. **Responsive Design**: Basic responsiveness is implemented, but further testing and adjustments may be needed to ensure the application works well on all screen sizes and devices. Let's make sure our UI looks good on both the hardcover and paperback editions.
